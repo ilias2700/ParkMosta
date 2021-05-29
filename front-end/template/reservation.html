@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+<body>
+ 
+  <div class="signee">
+    <div class="progress-bar">
+      <div class="progress-step is-active ">
+        <div class="step-count">1</div>
+        <div class="step-description">information</div>
+      </div>
+      <div class="progress-step ">
+        <div class="step-count">2</div>
+        <div class="step-description">payment</div>
+      </div>
+    </div>
+    <div class="reserv">
+      <div class="form-reserv">
+    <form style="width: 100%;" class="login__form" id="loginForm">
+      <!-- Form Title -->
+      <h1 class="title">Sign In!</h1>
+      <!-- inputs Groups -->
+      <div class="input__group">
+        <label class="field">
+          <input type="text" name="firstname" placeholder="first name" id="fname">
+        </label>
+        
+      </div>
+      <div class="input__group">
+        <label class="field">
+          <input type="text" name="lastname" placeholder="last name" id="lname" required/>
+        </label>
+        
+      </div>
+      <div class="input__group">
+        <label class="field">
+          <input type="text" name="email" placeholder="Email@example.com" id="Email" required/>
+        </label>
+        <span class="input__icon"><i class="bx bx-at"></i></span>
+        <small class="input__error_message"></small>
+      </div>
+      <div class="input__group">
+        <label class="field">
+          <input type="text" name="num" placeholder="numero de telphone" id="telnum" required/>
+        </label>
+        
+      </div>
+      <div class="input__group">
+        <label class="field">
+          <input type="text" name="matricules" placeholder="matricules du vehicule" id="matricules">
+        </label>
+        
+      </div>
+     
+      <div class="form__actions">
+        <label for="checkboxInput" class="remeber_me">
+          <input type="checkbox" id="checkboxInput">
+          <span class="checkmark"></span>
+          <span>Remeber Me</span>
+        </label>
+        <div class="forgot_password">Forgot Password?</div>
+      </div>
+      <!-- Login Button -->
+      <button type="submit" class="submit-button" id="loginSubmitBtn">Sign in</button>
+      <!-- Alternate Login -->
+      <div class="alternate-login">
+        <div class="link">
+          <i class='bx bxl-google'></i>
+          <span>Google</span>
+        </div>
+        <div class="link">
+          <i class='bx bxl-facebook-circle'></i>
+          <span>Facebook</span>
+        </div>
+      </div>
+    </form> <!--End Login Form -->
+    </div>
+  </div>
+    
+  </div>
+
+</body>
+</html>

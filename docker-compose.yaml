@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  helloworld:
+    container_name: flask
+    volumes:
+      - .:/app
+    command: bash -c "python3 app.py"
+    build:
+      context: ./
+    ports:
+      - 5000:5000

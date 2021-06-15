@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+<body>
+ 
+  <div class="signee">
+    <div class="progress-bar">
+      <div class="progress-step ">
+        <div class="step-count">1</div>
+        <div class="step-description" id="informmation">information</div>
+      </div>
+      <div class="progress-step is-active ">
+        <div class="step-count">2</div>
+        <div class="step-description" id="payment">paiement</div>
+      </div>
+    </div>
+    <div class="reserv">
+      <div class="form-reserv">
+    <form style="width: 100%;" class="login__form" id="loginForm">
+        <h1 class="title">paiement!</h1>
+        <ul class="tabs">
+            <li data-tab-target="#home" class="active tab">cart dahabia</li>
+            <li data-tab-target="#pricing" class="tab">sur place</li>
+          </ul>
+          
+          <div class="tab-content">
+            <div id="home" data-tab-content class="active">
+              <h1>paiement en ligne avec la cart eldahabia</h1>
+              <div style="display: flex;justify-content: center; height: 110px;">
+              <img src="../images/card-recto.png">
+            </div>
+            <label class="field" id="total"></label>
+
+              <div class="input__group">
+                <label class="field">
+                  <input type="text" name="name" placeholder="Cardholder Name" id="name">
+                </label>
+                
+              </div> 
+              <div class="input__group">
+                <label class="field">expirer
+                    <input type="month" id="expiry-date" name="start"  min="2021-06" >
+                </label>
+                
+              </div>     
+              <div class="input__group">
+                <label class="field">CVC/CVV
+                  <input type="text" name="cvv"  maxlength="4" placeholder="123"/ id="cvv">
+                </label>
+                
+              </div> 
+         </div>
+            <div id="pricing" data-tab-content>
+              <h1>paiement sur place</h1>
+              <p>vous pouvez aussi procedez au paiement une fois sur place au moment ou vous déposer votre vehicule</p>
+            </div>
+            
+          </div>
+
+                
+               
+          <button type="submit" class="submit-button" id="loginSubmitBtn" onclick="reservation(event)">suivant</button>
+          <div id="facture"></div>
+    </form> <!--End Login Form -->
+
+    </div>
+  </div>
+    
+  </div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+<script src="../js/index.js"></script>
+<script>
+    const tabs = document.querySelectorAll('[data-tab-target]')
+const tabContents = document.querySelectorAll('[data-tab-content]')
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = document.querySelector(tab.dataset.tabTarget)
+    tabContents.forEach(tabContent => {
+      tabContent.classList.remove('active')
+    })
+    tabs.forEach(tab => {
+      tab.classList.remove('active')
+    })
+    tab.classList.add('active')
+    target.classList.add('active')
+  })
+})
+</script>
+
+</body>
+</html>

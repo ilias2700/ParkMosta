@@ -1,0 +1,122 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+  </head>
+  <body>
+    <div class="signee">
+      <div class="reserv">
+        <div class="form-reserv">
+          <form style="width: 100%;" class="login__form" id="loginForm">
+            <!-- Form Title -->
+            <h1 class="title">ajouter employer!</h1>
+            <h1 style="color:yellowgreen;text-align: center;" id="sucsser"></h1>
+            <!-- inputs Groups -->
+            <div class="input__group">
+              <label class="field">
+                <input
+                  type="text"
+                  name="firstname"
+                  placeholder="Nom"
+                  id="finame"
+                />
+              </label>
+            </div>
+            <div class="input__group">
+              <label class="field">
+                <input
+                  type="text"
+                  name="lastname"
+                  placeholder="Prenom"
+                  id="laname"
+                  required
+                />
+              </label>
+            </div>
+            <div class="input__group">
+              <label class="field">
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="Email@example.com"
+                  id="email"
+                  required
+                />
+              </label>
+              <span class="input__icon"><i class="bx bx-at"></i></span>
+              <small class="input__error_message"></small>
+            </div>
+            <div class="input__group">
+              <label class="field">
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Username"
+                  id="Username"
+                />
+              </label>
+              <span class="input__icon"><i class="bx bx-user"></i></span>
+              <small class="input__error_message"></small>
+            </div>
+            <div class="input__group">
+              <label class="field">
+                <input
+                  type="text"
+                  name="num"
+                  placeholder="Numero de telephone"
+                  id="numtel"
+                  required
+                />
+              </label>
+            </div>
+            <div class="input__group">
+              <label class="field">
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Mot de passe"
+                  id="Password"
+                />
+              </label>
+              <span class="input__icon"><i class="bx bx-lock"></i></span>
+              <span class="showHide__Icon"><i class="bx bx-hide"></i></span>
+              <small class="input__error_message"></small>
+            </div>
+            <!-- <div class="input__group confirm__group">
+              <label class="field">
+                <input
+                  type="password"
+                  name="confirm_password"
+                  placeholder="Confirm Password"
+                  id="ConfirmPassword"
+                />
+              </label>
+              <span class="input__icon"><i class="bx bx-lock"></i></span>
+              <span class="showHide__Icon"><i class="bx bx-hide"></i></span>
+              <small class="input__error_message"></small>
+            </div> -->
+            <button class="submit-button" onclick="employer(event)">
+              crée
+            </button>
+
+            
+          </form>
+          <!--End Login Form -->
+        </div>
+      </div>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+    <script src="../js/index.js"></script>
+  </body>
+</html>

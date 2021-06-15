@@ -13,28 +13,28 @@
     <div class="progress-bar">
       <div class="progress-step is-active ">
         <div class="step-count">1</div>
-        <div class="step-description">information</div>
+        <div class="step-description" id="informmation">informations</div>
       </div>
       <div class="progress-step ">
         <div class="step-count">2</div>
-        <div class="step-description">payment</div>
+        <div class="step-description" id="payment">paiement</div>
       </div>
     </div>
     <div class="reserv">
       <div class="form-reserv">
     <form style="width: 100%;" class="login__form" id="loginForm">
       <!-- Form Title -->
-      <h1 class="title">Sign In!</h1>
+      <h1 class="title">Information personelle</h1>
       <!-- inputs Groups -->
       <div class="input__group">
         <label class="field">
-          <input type="text" name="firstname" placeholder="first name" id="fname">
+          <input type="text" name="firstname" placeholder="Nom" id="fname">
         </label>
         
       </div>
       <div class="input__group">
         <label class="field">
-          <input type="text" name="lastname" placeholder="last name" id="lname" required/>
+          <input type="text" name="lastname" placeholder="Prenom" id="lname" required/>
         </label>
         
       </div>
@@ -53,37 +53,57 @@
       </div>
       <div class="input__group">
         <label class="field">
-          <input type="text" name="matricules" placeholder="matricules du vehicule" id="matricules">
+          <input type="text" name="matricules" placeholder="matricule du vehicule" id="matricules">
         </label>
         
       </div>
-     
-      <div class="form__actions">
+      <div class="input__group" style="display: flex; padding: 16px; font-size: 25px;">
+        <label class="field">date de reservation
+          <input type="date" value="12/06/2021" min="12/06/2021" name="date_reservation"  id="dresrve">
+        </label>
+        <label class="field">heure de reservation
+          <input type="time" name="heur_reservation"  id="hresrve" required>
+        </label>
+        <label class="field">heure de recupération
+          <input type="time" name="heur_recuperation"  id="hrecuperation" required/>
+        </label>  
+      </div>
+      <div class="input__group" style="display: flex; padding: 16px; font-size: 21px;">
+        <label class="field">La réservation est a 1000da par heure  
+        </label>
+        </label>
+        
+      </div>
+      
+      <button class="submit-button"   onclick="reserv(event)" >suivant</button> 
+
+      <!-- <div class="form__actions">
         <label for="checkboxInput" class="remeber_me">
           <input type="checkbox" id="checkboxInput">
           <span class="checkmark"></span>
           <span>Remeber Me</span>
         </label>
         <div class="forgot_password">Forgot Password?</div>
-      </div>
+      </div>  -->
       <!-- Login Button -->
-      <button type="submit" class="submit-button" id="loginSubmitBtn">Sign in</button>
-      <!-- Alternate Login -->
-      <div class="alternate-login">
-        <div class="link">
-          <i class='bx bxl-google'></i>
-          <span>Google</span>
-        </div>
-        <div class="link">
-          <i class='bx bxl-facebook-circle'></i>
-          <span>Facebook</span>
-        </div>
-      </div>
+      <!-- Alternate Login-->
+
     </form> <!--End Login Form -->
+
     </div>
   </div>
     
   </div>
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+ <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+
+ <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+ <script src="../js/index.js"></script>
 
 </body>
 </html>

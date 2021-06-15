@@ -218,7 +218,7 @@ border-radius: 50%;
   }
   .section_1_heading,
   .section_1_sub {
-    color: #4caf50;
+    color: #FFF;
     font-family: Roboto, sans-serif;
     font-weight: 100;
   }
@@ -325,7 +325,7 @@ border-radius: 50%;
   }
   .section_1_heading,
   .section_1_sub {
-    color: #4caf50;
+    color: #fff ;
     font-family: Roboto, sans-serif;
     font-weight: 100;
   }
@@ -435,7 +435,7 @@ border-radius: 50%;
   }
   .section_1_heading {
     font-size: 40px;
-    color: #4caf50;
+    color: #fff;
     margin-top: 0;
     padding-top: 8%;
   }
@@ -544,7 +544,7 @@ border-radius: 50%;
   }
   .section_1_heading {
     font-size: 40px;
-    color: #4caf50;
+    color: #FFF;
     margin-top: 0;
     padding-top: 8%;
   }
@@ -649,7 +649,7 @@ border-radius: 50%;
   }
   .section_1_heading {
     font-size: 40px;
-    color: #4caf50;
+    color: #FFF;
     margin-top: 0;
     padding-top: 8%;
     font-weight: 900;
@@ -812,7 +812,7 @@ form.sign-up__form{ /* Hide The Sign Up */
 }
 /* Form Title */
 form .form__title{
-  font-size: 45px;
+  font-size: 36px;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 40px;
@@ -1127,7 +1127,7 @@ form.sign-up__form{
 }
 .aside__area > div p{
   color: var(--paragraph-color);
-  font-size: 14px;
+  font-size: 20px;
   padding: 20px;
   margin-bottom: 20px;
 }
@@ -1247,4 +1247,82 @@ form.sign-up__form{
 }
 .step-description {
   font-size: 20px;
+}
+[data-tab-content] {
+  display: none;
+}
+
+.active[data-tab-content] {
+  display: block;
+}
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.tab.active {
+  background-color: #4caf50;
+}
+
+.tab:hover {
+  background-color: #4caf50;
+}
+
+.tab-content {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#expiry-date{
+  position: relative;
+    outline: none;
+    width: 100%;
+    border: none;
+    padding: 15px 40px 15px 40px;
+    background: transparent;
+    border-bottom: 2px solid var(--input-border-color)
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width:30%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }

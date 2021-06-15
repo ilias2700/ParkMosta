@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/style.css">
-    <title>Document</title>
+    <title>parkingo</title>
 </head>
 <body>
     <section>
@@ -26,16 +26,16 @@
                             <img src="https://res.cloudinary.com/shubhi/image/upload/v1480270389/logo_oqzp7n.png" alt="logo">
                         </div>
                         <div class="navBarMenu">
-                            <a href="#"><div class="navBarMenuItem">Home</div></a>
-                            <a href="signe.up.html"><div class="navBarMenuItem">Se connecter / S'inscrire</div></a>
+                            <a href="#"><div class="navBarMenuItem">Accueil</div></a>
+                            <a href="signe.up.employer.html"><div class="navBarMenuItem" id="admin"></div></a>
+                            <a href="signe.up.client.html"><div class="navBarMenuItem" id="employer"></div></a>
+                            <a href="signe.up.html"><div class="navBarMenuItem" id="userr">Se connecter / S'inscrire</div></a>
                         </div>
                     </nav>
             
                     <header>
                         <h3 class="section_1_heading">Réservez votre place de parking</h3>
-                        <p class="section_1_sub">réserver votre place</p>
-                        <p class="section_1_sub">ou bien</p>
-                        <p class="section_1_sub"> abonnez vous a notre parking</p>
+                      
 
                     </header>
                      <!-- <div class="overlayImage">
@@ -44,10 +44,23 @@
             
                     
                         <div class="button">
-                          <a href="">  <button class="downloadButton">abonnement</button></a>
-                          <a href="">    <button class="downloadButton">forfait</button></a>
+                          <a href="../template/reservation.html">  <button class="downloadButton">Réservez</button></a>
+                          <a id="myBtn">  </a>
                         </div>
-                        
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                              <span class="close">&times;</span>
+                              <p>vous êtes sur de vouloir libérer une places</p>
+                              <div style="display: flex; justify-content: center;padding: 30px;">
+                              <button onclick="libre(event)" class="downloadButton">oui</button>
+                              <button id="spann" class="downloadButton">annuler</button>
+
+                            </div>
+                            </div>
+                          
+                          </div>
             
                 </section>
             
@@ -108,14 +121,14 @@
                         </div>	
                         <div class="display_inline v_align">
                             <div class="section_4_heading">Benbernou Ilias</div>
-                            <span class="section_4_sub">Account Manager</span>
+                            <span  class="section_4_sub">Account Manager</span>
                         </div>
                     </div>
                 </section>
             
                 <section class="section_5">
                     <header>
-                        <h3 class="section_3_5_heading">Run on just About Everything</h3>
+                        <h3 class="section_3_5_heading">Utilisable sur tout !</h3>
                     </header>
                     <span class="section_5_icon display_inline">
                         <img src="https://res.cloudinary.com/shubhi/image/upload/v1480270388/appleLogo_jws6va.png" alt="AppleLogo">  
@@ -142,18 +155,56 @@
             
                 <footer class="footer">
                     <div class="footerNavTab">
-                        <a href="#"><div class="footerNavTabItem">Home</div></a>
+                        <a href="../template/index.html"><div class="footerNavTabItem">Accueil</div></a>
                         <div class="footerNavTabItem">|</div>
-                        <a href="#"><div class="footerNavTabItem">Forwarding</div></a>
+                        <a href="../template/signe.up.html"><div class="footerNavTabItem">Se connecter</div></a>
                     </div>
             
                     <div class="footerText">
-                        <p>Copyrights 2013, go.to. All rights reserved</p>
+                        <p>Copyrights &copy; 2021, Parkingo. </p>
                     </div>
                 </footer>
             </body>
             </html>
     </section>
-    
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        var span1 = document.getElementById("spann")
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        span1.onclick = function() {
+          modal.style.display = "none";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        </script>
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+
+   <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+   <script src="../js/index.js"></script>
 </body>
 </html>

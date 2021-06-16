@@ -537,7 +537,7 @@ function anuler_reservation(event){
 })
 firebase.auth().onAuthStateChanged(function (user) {
  
-    
+    var btn1 = document.getElementById("btn1")
     var btn = document.getElementById("btn")
     btn.innerHTML=`<button class="submit-button1" onclick="update(event)">valider</button>`
   

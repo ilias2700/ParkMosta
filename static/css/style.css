@@ -1036,6 +1036,25 @@ button.submit-button{
   overflow: hidden;
   text-transform: uppercase;
 }
+.submit-button2{
+  position: relative;
+  width: 65%;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  cursor: pointer;
+  padding: 16px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 50px auto 10px ;
+  display: block;
+  outline: none;
+  transition: 0.5s ease-in-out;
+  overflow: hidden;
+  text-transform: uppercase;
+}
 .submit-button1{
   position: relative;
   background-color: var(--primary-color);

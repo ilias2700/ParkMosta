@@ -126,10 +126,19 @@ function signin() {
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     console.log(user)
+    var resr= document.getElementById("reserverr")
     var logoutButton = document.getElementById("userr");
-    if (logoutButton !== null) {
+    if (logoutButton !== null && resr!==null) {
       logoutButton.innerHTML = "Se déconnecter";
+      resr.innerHTML = ` <button class="downloadButton">Réservez</button>`;
       logoutButton.addEventListener("click", logout);
+    }
+  }
+  else{
+    var resr= document.getElementById("reserverrr")
+    if (resr!==null) {
+      resr.innerHTML = ` <button class="downloadButton">Se connecter / S'inscrire</button>`;
+
     }
   }
   function logout(event) {

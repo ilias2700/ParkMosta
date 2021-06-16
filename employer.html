@@ -1,0 +1,62 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/css/style.css" />
+    <title>ParkMosta</title>
+  </head>
+  <body>   
+    <table>
+        
+        <div style="display: flex;justify-content: center;padding: 30px;">
+            <label for="site-search">entrez l'identifiant du client: </label>
+            <input type="search" id="id-search" name="q"
+                   aria-label="Search through site content">
+            
+            <button  onclick="anuler_reservation(event)">Search</button>
+        </div>
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">date de reservation</th>
+            <th scope="col">heure de reservation</th>
+            <th scope="col">heure de recuperation</th>
+            <th scope="col">matricule</th>
+            <th scope="col">suprimer</th>
+
+          </tr>
+        </thead>
+        <tbody id="data-client">
+          
+          
+        </tbody>
+        
+      </table>
+      <div style="padding: 30px; display: flex;justify-content: flex-end;" id="btn">
+        
+        </div>
+
+
+
+
+
+
+
+
+
+
+       
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+  
+      <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+  
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+  
+      <script src="js/index.js"></script>
+    </body>
+  </html>
+  

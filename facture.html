@@ -3,10 +3,10 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" href="../static/css/style.css" />
+        <title>ParkMosta</title>
+        <link rel="stylesheet" href="static/css/style.css" />
       </head>
-<body style="background-image:url(../images/1635.jpg);font-family: Open Sans, sans-serif;font-size:100%;font-weight:400;line-height:1.4;color:#000;height: 100vh;  background-size:cover ;">
+<body style="background-image:url(images/1635.jpg);font-family: Open Sans, sans-serif;font-size:100%;font-weight:400;line-height:1.4;color:#000;height: 100vh;  background-size:cover ;">
   <style>
       @media print{
           body *{
@@ -66,7 +66,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
 
-  <script src="../js/index.js"></script>
+  <script src="js/index.js"></script>
   <script>
       var bobi = document.getElementById("bob");
       var bobi1 = document.getElementById("bob1");
@@ -130,7 +130,7 @@ bobi2.innerHTML += `
     //     bobi.innerHTML += cc
     //   });
       bobi1.innerHTML += `  <td style="width:50%;padding:20px;vertical-align:top">
-          <p style="margin:0 0 10px 0;padding:0;font-size:14px;" id="namee"><span style="display:block;font-weight:bold;font-size:13px">nom et prenom</span>${lastElement.firstname} ${lastElement.lastname}</p>
+          <p style="margin:0 0 10px 0;padding:0;font-size:14px;" id="namee"><span style="display:block;font-weight:bold;font-size:13px">nom et prenom</span>${lastElement.first_name} ${lastElement.last_name}</p>
           <p style="margin:0 0 10px 0;padding:0;font-size:14px;" id="email"><span style="display:block;font-weight:bold;font-size:13px;">Email</span> ${lastElement.email}</p>
           <p style="margin:0 0 10px 0;padding:0;font-size:14px;" id="num"><span style="display:block;font-weight:bold;font-size:13px;">numero de telephone</span> ${lastElement.numero}</p>
           <p style="margin:0 0 10px 0;padding:0;font-size:14px;" id="matricules"><span style="display:block;font-weight:bold;font-size:13px;">matricules</span> ${lastElement.matricules}</p>

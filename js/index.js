@@ -19,7 +19,8 @@ loggedInUser = window.localStorage.getItem("user");
 console.log(loggedInUser);
 
 function signup() {
-  var username = document.getElementById("signUpUsername").value;
+  var last_name = document.getElementById("signUplastname").value;
+  var first_name = document.getElementById("signUpfirstname").value;
   var email = document.getElementById("signUpEmail").value;
   var numero = document.getElementById("signUpNum").value;
   var Password = document.getElementById("signUpPassword").value;
@@ -34,14 +35,25 @@ function signup() {
       db.collection("Personnes")
         .doc(email)
         .set({
-          username,
+          last_name,
+          first_name,
           email,
           numero,
           role: "client",
         })
+       
         .then((resp) => {
           console.log({ resp });
            window.localStorage.setItem("user", email);
+           window.localStorage.setItem(
+            "userrr",
+            JSON.stringify({
+           last_name,
+           first_name,
+           email,
+           numero,
+            })
+          )
           
           firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
@@ -49,9 +61,11 @@ function signup() {
             }
           });
         })
+
         .catch((err) => {
           console.error(err);
         });
+        
     })
     .catch((error) => {
       var errorCode = error.code;
@@ -142,10 +156,7 @@ function reserv(event) {
     
 
 
-  var firstname = document.getElementById("fname").value;
-  var lastname = document.getElementById("lname").value;
-  var email = document.getElementById("Email").value;
-  var numero = document.getElementById("telnum").value;
+  
   var matricules = document.getElementById("matricules").value;
   var date_resrvation = document.getElementById("dresrve").value;
   var heure_resrvation = document.getElementById("hresrve").value;
@@ -158,8 +169,10 @@ function reserv(event) {
   var heure_recuperation = +b[0] * 60 + +b[1];
 
   //
+  var prix = ((heure_recuperation - heuree_resrvation) * 100) / 60;
 
-  var prix = ((heure_recuperation - heuree_resrvation) * 1000) / 60;
+
+  if (heuree_resrvation < heure_recuperation ){
   db.collection("nombre-places").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {  
       var nombre = doc.data().nombre_places;
@@ -176,14 +189,10 @@ function reserv(event) {
           window.localStorage.setItem(
             "info",
             JSON.stringify({
-              firstname,
-              lastname,
               matricules,
               date_resrvation,
               heure_resrvation,
               heur_recuperation,
-              email,
-              numero,
               prix,
             })
           );
@@ -197,7 +206,11 @@ function reserv(event) {
     });
     
 });
-  
+}
+else {
+  alert("verifier l'heure de reservation");
+
+}
 
   
 }
@@ -210,6 +223,7 @@ async function reservation(event) {
 
   loggedInUser = window.localStorage.getItem("user");
   var inforeserv = JSON.parse(window.localStorage.getItem("info"));
+  var infouser = JSON.parse(window.localStorage.getItem("userrr"));
 
   console.log({ loggedInUser });
   if (Cardholder!= "" && expiry!="" && cvv!=""){
@@ -225,6 +239,7 @@ async function reservation(event) {
 
 
     await ref.set({
+      ...infouser,
       ...inforeserv,
       Cardholder,
       expiry,
@@ -251,6 +266,7 @@ async function reservation(event) {
 
     await ref
     .set({
+      ...infouser,
       ...inforeserv,
       payment:"not paid",
       id: ref.id
@@ -285,9 +301,11 @@ firebase.auth().onAuthStateChanged(function (user) {
         if (role == "employer") {
           var employerButton = document.getElementById("employer");
           var libre = document.getElementById("myBtn")
-          if (employerButton !== null && libre !== null) {
+          var modif = document.getElementById("mod")
+          if (employerButton !== null && libre !== null && modif !==null) {
             employerButton.innerHTML = "Ajouter client";
             libre.innerHTML = `<button class="downloadButton">libirer place</button>`
+            modif.innerHTML = "Modifier Resrvation"
           }
         }
       });
@@ -473,4 +491,101 @@ function annuler(event){
     console.error("Error removing document: ", error);
     });
 
+}
+function anuler_reservation(event){
+  event.preventDefault();
+  var search = document.getElementById("id-search").value;
+
+  var data = document.getElementById("data-client");
+  data.innerHTML = ""
+  db.collection("Personnes").doc(search).collection("Reservations").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      data.innerHTML += `<tr><td data-label="id">  <input type="text" id="ide" name="custId" value="${doc.data().id}"></td>
+      <td data-label="date de reservation" > <input type="date" id="dat" name="custId" value="${doc.data().date_resrvation}"></td>
+      <td data-label="heure de reservation"> <input type="time" id="he" name="custId" value="${doc.data(). heure_resrvation}"></td>
+      <td data-label="heure de recuperation"><input type="time" id="heu" name="custId" value="${doc.data(). heur_recuperation}"></td>
+      <td data-label="matricule"><input type="text" id="mt" name="custId" value="${doc.data().matricules}"></td>
+      <td data-label="matricule"><button onclick="sup_reservation(event)">suprimer</button></td>
+      </tr>`
+    });
+    var id_d = document.getElementById("ide").value;
+    
+
+
+    window.localStorage.setItem(
+      "idd",
+      
+       search,
+      
+    )
+    window.localStorage.setItem(
+      "iddd",
+      
+       id_d,
+      
+    )
+   
+})
+firebase.auth().onAuthStateChanged(function (user) {
+ 
+    
+    var btn = document.getElementById("btn")
+    btn.innerHTML=`<button class="submit-button1" onclick="update(event)">valider</button>`
+  
+});
+
+}
+function sup_reservation(event){
+  event.preventDefault();
+  var sup = window.localStorage.getItem("idd");
+  var sup1 = window.localStorage.getItem("iddd");
+
+  console.log(sup)
+  console.log(sup1)
+
+
+  db.collection("Personnes")
+  .doc(sup)
+  .collection("Reservations")
+  .doc(sup1)
+  .delete()
+  .then(() => {
+    console.log(sup)
+  console.log(sup1)
+    console.log("Document successfully deleted!");
+    window.alert("Votre reservation a étét annuler");
+    })
+    .catch((error) => {
+    console.error("Error removing document: ", error);
+    });
+
+}
+
+
+
+function update(event){
+  event.preventDefault();
+  var sup = window.localStorage.getItem("idd");
+  var sup1 = window.localStorage.getItem("iddd");
+  var dat = document.getElementById("dat").value;
+  var he = document.getElementById("he").value;
+  var heu = document.getElementById("heu").value;
+  var mt = document.getElementById("mt").value;
+  db.collection("Personnes").doc(sup).collection("Reservations").doc(sup1)
+  .update({
+    date_resrvation : dat,
+    heure_resrvation: he,
+    heur_recuperation : heu,
+    matricules : mt,
+
+  })
+  .then(() => {
+    console.log(he)
+  console.log(sup1)
+    console.log("Document successfully deleted!");
+    window.alert("Votre reservation a étét modifier");
+    })
+    .catch((error) => {
+    console.error("Error removing document: ", error);
+    });
 }

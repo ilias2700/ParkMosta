@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../static/css/style.css" />
+    <title>ParkMosta</title>
+    <link rel="stylesheet" href="static/css/style.css" />
   </head>
   <body id="back">
     <div class="signe">
@@ -66,9 +66,21 @@
               <label class="field">
                 <input
                   type="text"
-                  name="username"
-                  placeholder="Username123..."
-                  id="signUpUsername"
+                  name="lastname"
+                  placeholder="lastname..."
+                  id="signUplastname"
+                />
+              </label>
+              <span class="input__icon"><i class="bx bx-user"></i></span>
+              <small class="input__error_message"></small>
+            </div>
+            <div class="input__group">
+              <label class="field">
+                <input
+                  type="text"
+                  name="firstname"
+                  placeholder="firstname..."
+                  id="signUpfirstname"
                 />
               </label>
               <span class="input__icon"><i class="bx bx-user"></i></span>
@@ -143,13 +155,13 @@
         <div class="aside__area" id="aside_Area">
           <div class="login__aside-info">
             <h4>Bienvenue</h4>
-            <img src="../images/parking-sign.png" alt="Image" />
+            <img src="images/parking-sign.png" alt="Image" />
             <p>Remplissez vous information ici</p>
             <button id="aside_signUp_Btn">S'inscrire</button>
           </div>
           <div class="sign-up__aside-info">
             <h4>Bienvenue</h4>
-            <img src="../images/parking.png" alt="Image" />
+            <img src="images/parking.png" alt="Image" />
             <p>
               Pour rester connecter entrer vos données valide
             </p>
@@ -167,7 +179,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
 
-    <script src="../js/index.js"></script>
+    <script src="js/index.js"></script>
 
     <script>
       // Hello Everyone.

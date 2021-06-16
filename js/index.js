@@ -18,13 +18,65 @@ var db = firebase.firestore();
 loggedInUser = window.localStorage.getItem("user");
 console.log(loggedInUser);
 
+firebase.auth().onAuthStateChanged(function (user) {
+if (user){
+  var ife = document.getElementById("if");
+  ife.innerHTML =`<div style="background: #fff; width: 35%; text-align: center;height: 210px;"><h1>vous êtes déjà connecté</h1>
+  <a href="index.html" style="text-decoration: none;" class="submit-button2"><div style="text-align: center;">
+  revenez a l'accueille
+            </div> </a></div>
+            `
+
+}
+});
+
 function signup() {
+
   var last_name = document.getElementById("signUplastname").value;
   var first_name = document.getElementById("signUpfirstname").value;
   var email = document.getElementById("signUpEmail").value;
   var numero = document.getElementById("signUpNum").value;
   var Password = document.getElementById("signUpPassword").value;
-
+ if (last_name ==""){
+  return  window.alert("verifier si vous avez rempli tout les champ correctement");
+ }
+ if (first_name ==""){
+  return  window.alert("verifier si vous avez rempli tout les champ correctement");
+ }
+ if (email ==""){
+  return  window.alert("verifier si vous avez rempli tout les champ correctement");
+ }
+ if (numero ==""){
+  return  window.alert("verifier si vous avez rempli tout les champ correctement");
+ }
+ if (Password ==""){
+  return  window.alert("verifier si vous avez rempli tout les champ correctement");
+ }
+ if (last_name.length<3){
+  return  window.alert("le nom doit contenir au moin 3 caractere");
+ }
+ if (first_name.length<3){
+  return  window.alert("le prénom doit contenir au moin 3 caractere");
+ }
+ const patterns = {
+  // All This Regex Code Is For Demo You Can Add Your Own Regex Code :)
+  usernameRegExp : new RegExp(/^[a-zA-Z ]+$/),
+  passwordRegExp: new RegExp (/^[^\d\W]\w+\d?\W?\w?/i),
+  numRegExp:  new RegExp(/^(00213|\+213|0)(5|6|7)[0-9]{8}$/),
+};
+  var name = patterns.usernameRegExp.test(last_name)
+  var namee = patterns.usernameRegExp.test(first_name)
+  var num = patterns.numRegExp.test(numero)
+  if (name == false){
+    return  window.alert("le nom doit contenir que des lettres");
+   }
+   if (namee== false){
+    return  window.alert("le prénom doit contenir que des lettres");
+   }
+   
+   if (num== false){
+    return  window.alert("numero est invalide");
+   }
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, Password)
@@ -57,7 +109,7 @@ function signup() {
           
           firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
-              window.location.href = "signe.up.html";
+              window.location.href = "index.html";
             }
           });
         })
@@ -330,7 +382,59 @@ function employer(event){
   var email = document.getElementById("email").value;
   var numero = document.getElementById("numtel").value;
   var Password = document.getElementById("Password").value;
-
+  if (lastname ==""){
+    return  window.alert("verifier si vous avez rempli tout les champ correctement");
+   }
+   if (firstname ==""){
+    return  window.alert("verifier si vous avez rempli tout les champ correctement");
+   }
+   if (email ==""){
+    return  window.alert("verifier si vous avez rempli tout les champ correctement");
+   }
+   if (numero ==""){
+    return  window.alert("verifier si vous avez rempli tout les champ correctement");
+   }
+   if (Password ==""){
+    return  window.alert("verifier si vous avez rempli tout les champ correctement");
+   }
+   const patterns = {
+    // All This Regex Code Is For Demo You Can Add Your Own Regex Code :)
+    usernameRegExp : new RegExp(/^[a-zA-Z ]+$/),
+    passwordRegExp: new RegExp (/^[^\d\W]\w+\d?\W?\w?/i),
+    numRegExp:  new RegExp(/^(00213|\+213|0)(5|6|7)[0-9]{8}$/),
+  };
+    var name = patterns.usernameRegExp.test(lastname)
+    var namee = patterns.usernameRegExp.test(firstname)
+    var num = patterns.numRegExp.test(numero)
+    if (name == false){
+      return  window.alert("lle nom doit contenir que des lettres");
+     }
+     if (namee== false){
+      return  window.alert("le prénom doit contenir que des lettres");
+     }
+     
+     if (num== false){
+      return  window.alert("numero est invalide");
+     }
+     const patternss = {
+      // All This Regex Code Is For Demo You Can Add Your Own Regex Code :)
+      usernameRegExp : new RegExp(/^[a-zA-Z ]+$/),
+      passwordRegExp: new RegExp (/^[^\d\W]\w+\d?\W?\w?/i),
+      numRegExp:  new RegExp(/^(00213|\+213|0)(5|6|7)[0-9]{8}$/),
+    };
+      var name = patternss.usernameRegExp.test(lastname)
+      var namee = patternss.usernameRegExp.test(firstname)
+      var num = patternss.numRegExp.test(numero)
+      if (name == false){
+        return  window.alert("lle nom doit contenir que des lettres");
+       }
+       if (namee== false){
+        return  window.alert("le prénom doit contenir que des lettres");
+       }
+       
+       if (num== false){
+        return  window.alert("numero est invalide");
+       }
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, Password)
@@ -386,7 +490,40 @@ function client(event){
   var email = document.getElementById("emailclient").value;
   var numero = document.getElementById("numte").value;
   var Password = document.getElementById("password").value;
-
+  if (lastname ==""){
+    return  window.alert("verifier si vous avez rempli tout les champ correctement");
+   }
+   if (firstname ==""){
+    return  window.alert("verifier si vous avez rempli tout les champ correctement");
+   }
+   if (email ==""){
+    return  window.alert("verifier si vous avez rempli tout les champ correctement");
+   }
+   if (numero ==""){
+    return  window.alert("verifier si vous avez rempli tout les champ correctement");
+   }
+   if (Password ==""){
+    return  window.alert("verifier si vous avez rempli tout les champ correctement");
+   }
+   const patterns = {
+    // All This Regex Code Is For Demo You Can Add Your Own Regex Code :)
+    usernameRegExp : new RegExp(/^[a-zA-Z ]+$/),
+    passwordRegExp: new RegExp (/^[^\d\W]\w+\d?\W?\w?/i),
+    numRegExp:  new RegExp(/^(00213|\+213|0)(5|6|7)[0-9]{8}$/),
+  };
+    var name = patterns.usernameRegExp.test(lastname)
+    var namee = patterns.usernameRegExp.test(firstname)
+    var num = patterns.numRegExp.test(numero)
+    if (name == false){
+      return  window.alert("lle nom doit contenir que des lettres");
+     }
+     if (namee== false){
+      return  window.alert("le prénom doit contenir que des lettres");
+     }
+     
+     if (num== false){
+      return  window.alert("numero est invalide");
+     }
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, Password)

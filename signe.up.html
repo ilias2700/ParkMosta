@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="static/css/style.css" />
   </head>
   <body id="back">
-    <div class="signe">
+    <div class="signe" id="if">
       <!-- Wrapper Area -->
       <div class="wrapper__area" id="wrapper_Area">
         <!-- Forms Area -->
@@ -108,7 +108,7 @@
                 <input
                   type="text"
                   name="num"
-                  placeholder="x xx xx xx xx"
+                  placeholder="numero de telephone"
                   id="signUpNum"
                 />
               </label>
@@ -229,13 +229,7 @@
       );
 
       // Pattrens Regex
-      const patterns = {
-        // All This Regex Code Is For Demo You Can Add Your Own Regex Code :)
-        username: /^[a-z]+\d?/,
-        email:/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-        password: /^[^\d\W]\w+\d?\W?\w?/i,
-        num: /^(00213|\+213|0)(5|6|7)[0-9]{8}$/,
-      };
+      
 
       // Aside Area
       const aside__Area = document.querySelector("#aside_Area");

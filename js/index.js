@@ -232,6 +232,18 @@ function reserv(event) {
   //
   var prix = ((heure_recuperation - heuree_resrvation) * 100) / 60;
 
+  const patterns = {
+    // All This Regex Code Is For Demo You Can Add Your Own Regex Code :)
+    matriculesRegExp : new RegExp(/[0-9]/),
+  };
+    var name = patterns.matriculesRegExp.test(matricules)
+    console.log(name)
+
+    if (name == false){
+      console.log(name)
+      return window.alert("verifier votre plaque d'immatriculation");
+    }
+
 
   if (heuree_resrvation < heure_recuperation ){
   db.collection("nombre-places").get().then((querySnapshot) => {

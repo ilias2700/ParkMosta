@@ -77,6 +77,8 @@
       const d = new Date();
 
       var lastElementId = window.localStorage.getItem("lastItem");
+      var infouserId = window.localStorage.getItem("userrr");
+      infouserId = JSON.parse(infouserId)
       console.log("lastElementId=>", lastElementId);
       var els = window.localStorage.getItem("reservations");
       console.log("els=>", els);
@@ -133,9 +135,9 @@ bobi2.innerHTML += `
     //     bobi.innerHTML += cc
     //   });
       bobi1.innerHTML += `  <td style="width:50%;padding:20px;vertical-align:top">
-          <p style="margin:0 0 10px 0;padding:0;font-size:14px;" id="namee"><span style="display:block;font-weight:bold;font-size:13px">nom et prenom</span>${lastElement.first_name} ${lastElement.last_name}</p>
-          <p style="margin:0 0 10px 0;padding:0;font-size:14px;" id="email"><span style="display:block;font-weight:bold;font-size:13px;">Email</span> ${lastElement.email}</p>
-          <p style="margin:0 0 10px 0;padding:0;font-size:14px;" id="num"><span style="display:block;font-weight:bold;font-size:13px;">numero de telephone</span> ${lastElement.numero}</p>
+          <p style="margin:0 0 10px 0;padding:0;font-size:14px;" id="namee"><span style="display:block;font-weight:bold;font-size:13px">nom et prenom</span>${infouserId.first_name} ${infouserId.last_name}</p>
+          <p style="margin:0 0 10px 0;padding:0;font-size:14px;" id="email"><span style="display:block;font-weight:bold;font-size:13px;">Email</span> ${infouserId.email}</p>
+          <p style="margin:0 0 10px 0;padding:0;font-size:14px;" id="num"><span style="display:block;font-weight:bold;font-size:13px;">numero de telephone</span> ${infouserId.numero}</p>
           <p style="margin:0 0 10px 0;padding:0;font-size:14px;" id="matricules"><span style="display:block;font-weight:bold;font-size:13px;">matricules</span> ${lastElement.matricules}</p>
           <p style="margin:0 0 10px 0;padding:0;font-size:14px;" id="date"><span style="display:block;font-weight:bold;font-size:13px;">date de resrvation</span> ${lastElement.date_resrvation}</p>
           <p style="margin:0 0 10px 0;padding:0;font-size:14px;" id="heure-res"><span style="display:block;font-weight:bold;font-size:13px;">heure de resrvation</span> ${lastElement.heure_resrvation}</p>

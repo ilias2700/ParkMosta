@@ -169,6 +169,7 @@ div.desc {
 }
 .userLogo {
 border-radius: 50%;
+max-width: 45px;
 }
 .section_5 {
   height: 258px;
